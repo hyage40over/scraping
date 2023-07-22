@@ -10,7 +10,12 @@ time.sleep(5)
 
 # "p"は検索ボックスのname
 element = driver.find_element(By.TAG_NAME, "p")
-element.click()
+element.clear()
+element.send_keys("技術士")
+
+driver.find_element_by_type("submit").click()
+
+
 
 driver.quit()
 
