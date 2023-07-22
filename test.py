@@ -1,24 +1,18 @@
-import time
-from selenium import webdriver
-from selenium.webdriver.common import keys
-from selenium.webdriver.common.by import By
 
-driver = webdriver.Chrome('venv/chromedriver')
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome import service as fs
+
+# CHROMEDRIVER = "C:\data\etc\chromedriver.exe"
+CHROMEDRIVER = "venv\chromedriver"
+
+chrome_service = fs.Service(executable_path=CHROMEDRIVER)
+driver = webdriver.Chrome(service=chrome_service)
 driver.get("https://www.yahoo.co.jp/")
 
-time.sleep(5)
-
-# "p"は検索ボックスのname
-element = driver.find_element(By.TAG_NAME, "p")
-element.clear()
-element.send_keys("技術士")
-
-driver.find_element_by_type("submit").click()
-
-
+txt = driver.find_element(By.NAME, "p")
+txt.send_keys("技術士")
+txt.send_keys(Keys.ENTER)
 
 driver.quit()
-
-
-
-
