@@ -5,7 +5,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome import service as fs
 
-# CHROMEDRIVER = "C:\data\etc\chromedriver.exe"
 CHROMEDRIVER = "venv\chromedriver"
 
 chrome_service = fs.Service(executable_path=CHROMEDRIVER)
